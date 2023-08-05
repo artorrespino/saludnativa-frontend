@@ -3,9 +3,6 @@ import { CategoriaProducto } from '../modelos/CategoriaProducto';
 import { Producto } from '../modelos/Producto';
 import { HttpClient } from '@angular/common/http';
 import { Proveedor } from '../modelos/Proveedor';
-import { catchError } from 'rxjs/internal/operators/catchError';
-import { throwError } from 'rxjs/internal/observable/throwError';
-import { tap } from 'rxjs/internal/operators/tap';
 
 @Injectable({
   providedIn: 'root'

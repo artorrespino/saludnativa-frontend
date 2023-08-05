@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CategoriaProducto } from 'src/app/modelos/CategoriaProducto';
-import { Producto } from 'src/app/modelos/Producto';
-import { Proveedor } from 'src/app/modelos/Proveedor';
-import { ProductoService } from 'src/app/servicio/producto.service';
+import { CategoriaProducto, Producto,Proveedor } from 'src/app/modelos';
+import { ProductoService } from 'src/app/servicio';
 
 @Component({
   selector: 'app-listar-producto',
@@ -62,13 +60,21 @@ export class ListarProductoComponent implements OnInit {
     this.router.navigate(['nuevoProducto']);
   }
   editar(producto:Producto):void{
-    // localStorage.setItem("id",producto.id_producto.toString());
-    // this.router.navigate(['editarProducto']);
+    if (producto && producto.id_producto) {
+      localStorage.setItem("id", producto.id_producto.toString());
+      this.router.navigate(['editarProducto']);
+    }
   }
-  eliminar(producto:Producto):void{
-    this.productoService.deleteProducto(producto).subscribe(data=>{
-      this.productos=this.productos!.filter(p=>p!==producto);
-    });
+  eliminar(producto: Producto): void {
+    this.productoService.deleteProducto(producto).subscribe(
+      data => {
+        console.log(data.id_producto)
+        this.productos = this.productos!.filter((p)=> p.id_producto !== producto.id_producto);
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
 
 

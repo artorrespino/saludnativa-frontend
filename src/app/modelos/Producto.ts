@@ -20,7 +20,6 @@ export class Producto{
         this.stock_producto = 0;
         this.categoriaProducto = new CategoriaProducto();
         this.proveedor = new Proveedor();
-
     }
   
   }
