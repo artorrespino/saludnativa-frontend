@@ -1,1 +1,35 @@
 <p>listar-producto works!</p>
+<button (click)="nuevo()" class="btn bnt-warning">Agregar</button>
+<table>
+    <thead>
+        <tr>
+            <th>ID </th>
+            <th>Nombre Producto</th>
+            <th>Imagen producto</th>
+            <th>Descripcion</th>
+            <th>Precio Unit(S/.)</th>
+            <th>Stock</th>
+            <th>Categoria</th>
+            <th>Proveedor</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of productos">
+            <td>{{producto.id_producto}}</td>
+            <td>{{ producto.nombre_producto}}</td>
+            <td>{{producto.imagen_producto}}</td>
+            <td>{{producto.descripcion_producto}}</td>
+            <td>{{producto.precio_unitario_producto}}</td>
+            <td>{{producto.stock_producto}}</td>
+            <td>{{producto.categoriaProducto.categoria_producto}}</td>
+            <td>{{producto.proveedor.nombre_proveedor}}</td>
+            <td>
+                <button (click)="editar(producto)" class="btn bnt-warning">Editar</button>
+                <button (click)="eliminar(producto)" class="bnt bnt-danger">Eliminar</button>
+            </td>
+            
+
+        </tr>
+    </tbody>
+</table>

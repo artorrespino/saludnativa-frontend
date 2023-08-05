@@ -1,1 +1,11 @@
-
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav mr-auto">
+      <a routerLink="/productos" class="nav-link">Productos</a>
+      <!-- Asegúrate de que el routerLink comience con / para que sea una ruta absoluta -->
+    </div>
+  </nav>
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
