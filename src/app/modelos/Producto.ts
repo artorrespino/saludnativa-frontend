@@ -8,8 +8,6 @@ export class Producto{
     descripcion_producto: string;
     precio_unitario_producto: number;
     stock_producto: number;
-    //id_categoria_producto: number; 
-    //id_proveedor: number;
     categoriaProducto: CategoriaProducto;
     proveedor: Proveedor;
 
@@ -22,8 +20,6 @@ export class Producto{
         this.stock_producto = 0;
         this.categoriaProducto = new CategoriaProducto();
         this.proveedor = new Proveedor();
-        //this.id_categoria_producto = 0;
-        //this.id_proveedor = 0;
 
     }
   

@@ -21,7 +21,7 @@ export class ProductoService {
 
   createProducto(producto: Producto){7
     
-    return this.http.post<Producto>(this.url, producto1);
+    return this.http.post<Producto>(this.url, producto);
   }
 
   getProductoId(id:number){

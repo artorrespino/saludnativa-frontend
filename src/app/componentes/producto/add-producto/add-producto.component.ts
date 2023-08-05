@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CategoriaProducto } from 'src/app/modelos/CategoriaProducto';
-import { Producto } from 'src/app/modelos/Producto';
-import { Proveedor } from 'src/app/modelos/Proveedor';
-import { ProductoService } from 'src/app/servicio/producto.service';
+import { CategoriaProducto, Producto, Proveedor } from 'src/app/modelos';
+import { ProductoService } from 'src/app/servicio';
 
 @Component({
   selector: 'app-add-producto',
@@ -38,19 +36,10 @@ export class AddProductoComponent implements OnInit {
   }
 
   guardar(producto: Producto){
-    //producto.categoriaProducto = producto.categoriaProducto.id_categoria_producto; 
-    //producto.proveedor = producto.proveedor.id_proveedor;
 
-    const {id_producto, /* proveedor, categoriaProducto, */ ...productoSinID} = producto;
-
-    // const newProducto = {
-    //   ...productoSinID,
-    //   proveedor
-    // }
-
+    const { id_producto, ...productoSinID } = producto;
     console.log(productoSinID)
     this.productoService.createProducto(productoSinID).subscribe(data=>{
-
       this.router.navigate(['productos']);
     });
   }
