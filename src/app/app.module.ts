@@ -8,13 +8,16 @@ import { HttpClientModule} from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
 import { AddProductoComponent } from './componentes/producto/add-producto/add-producto.component';
 import { EditProductoComponent } from './componentes/producto/edit-producto/edit-producto.component';
+import { ListarProveedorComponent } from './componentes/proveedor/listar-proveedor/listar-proveedor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListarProductoComponent,
     AddProductoComponent,
-    EditProductoComponent
+    EditProductoComponent,
+    ListarProveedorComponent
+
   ],
   imports: [
     BrowserModule,
