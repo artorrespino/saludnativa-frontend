@@ -1,0 +1,29 @@
+<p>add-proveedor works!</p>
+<div class="container col-md-6">
+    <div>
+        <h3>Agregar Proveedor</h3>
+    </div>
+    <div class="card-body">
+        <form (submit)="guardar(modelProveedor)">
+            <div class="form-group">
+                <label for="nombre_proveedor">Nombre del proveedor:</label>
+                <input type="text" [(ngModel)]="modelProveedor.nombre_proveedor" id="nombre_proveedor" name="nombre_proveedor" class="form-control" placeholder="Ingrese el nombre del proveedor" title="Nombre del proveedor">
+            </div>
+            <div class="form-group">
+                <label for="contacto_proveedor">Persona de contacto :</label>
+                <input type="text" [(ngModel)]="modelProveedor.contacto_proveedor" id="contacto_proveedor" name="contacto_proveedor" class="form-control" placeholder="Ingrese nombre del Contacto del proveedor" title="Contacto del proveedor">
+            </div>
+            <div class="form-group">
+                <label for="email_proveedor">Email :</label>
+                <input type="text" [(ngModel)]="modelProveedor.email_proveedor" id="email_proveedor" name="email_proveedor" class="form-control" placeholder="Ingrese email del proveedor" title="Email del proveedor">
+            </div>
+            <div class="form-group">
+                <label for="celular_proveedor">Celular :</label>
+                <input type="text" [(ngModel)]="modelProveedor.celular_proveedor" id="celular_proveedor" name="celular_proveedor" class="form-control" placeholder="Ingrese el celular del proveedor" title="Celular del proveedor">
+            </div>
+            
+            <button type="submit"  class="btn btn-danger">Guardar</button>
+        </form>
+    </div>
+    
+</div>

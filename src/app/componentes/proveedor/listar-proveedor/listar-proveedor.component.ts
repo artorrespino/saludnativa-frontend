@@ -16,7 +16,7 @@ export class ListarProveedorComponent implements OnInit {
   constructor(private proveedorService:ProveedorService,private router: Router){}
 
   ngOnInit(): void {
-    this.proveedorService.getProveedor().subscribe(
+    this.proveedorService.getProveedorActivo().subscribe(
       data=>{
         this.proveedores=data;
         console.log(data);

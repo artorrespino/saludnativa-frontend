@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { AddProductoComponent } from './componentes/producto/add-producto/add-producto.component';
 import { EditProductoComponent } from './componentes/producto/edit-producto/edit-producto.component';
 import { ListarProveedorComponent } from './componentes/proveedor/listar-proveedor/listar-proveedor.component';
+import { AddProveedorComponent } from './componentes/proveedor/add-proveedor/add-proveedor.component';
+import { EditProveedorComponent } from './componentes/proveedor/edit-proveedor/edit-proveedor.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ListarProveedorComponent } from './componentes/proveedor/listar-proveed
     ListarProductoComponent,
     AddProductoComponent,
     EditProductoComponent,
-    ListarProveedorComponent
+    ListarProveedorComponent,
+    AddProveedorComponent,
+    EditProveedorComponent
 
   ],
   imports: [

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Estado, Proveedor } from '../modelos';
+import { url } from 'inspector';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,13 @@ export class ProveedorService {
   url = 'http://localhost:8080/api/proveedores';
 
   getProveedor() {
-    const urlProveedor = 'http://localhost:8080/api/proveedores';
     return this.http.get<Proveedor[]>(this.url);
+  }
+
+  getProveedorActivo(){
+    const urlProveedorActivo = 'http://localhost:8080/api/proveedoresactivos';
+    return this.http.get<Proveedor[]>(urlProveedorActivo);
+
   }
 
   createProveedor(proveedor: Proveedor){7

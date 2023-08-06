@@ -1,7 +1,7 @@
 import {Estado} from './Estado';
 
 export class Proveedor{
-    id_proveedor: number;
+    id_proveedor?: number;
     nombre_proveedor: string;
     contacto_proveedor: string;
     email_proveedor: string;
