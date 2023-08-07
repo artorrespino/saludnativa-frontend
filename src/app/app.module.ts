@@ -11,6 +11,9 @@ import { EditProductoComponent } from './componentes/producto/edit-producto/edit
 import { ListarProveedorComponent } from './componentes/proveedor/listar-proveedor/listar-proveedor.component';
 import { AddProveedorComponent } from './componentes/proveedor/add-proveedor/add-proveedor.component';
 import { EditProveedorComponent } from './componentes/proveedor/edit-proveedor/edit-proveedor.component';
+import { ListarUsuarioComponent } from './componentes/usuario/listar-usuario/listar-usuario.component';
+import { ListarClienteComponent } from './componentes/cliente/listar-cliente/listar-cliente.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { EditProveedorComponent } from './componentes/proveedor/edit-proveedor/e
     EditProductoComponent,
     ListarProveedorComponent,
     AddProveedorComponent,
-    EditProveedorComponent
+    EditProveedorComponent,
+    ListarUsuarioComponent,
+    ListarClienteComponent,
+    LoginComponent
 
   ],
   imports: [
