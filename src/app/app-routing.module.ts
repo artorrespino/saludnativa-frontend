@@ -6,6 +6,7 @@ import { EditProductoComponent } from './componentes/producto/edit-producto/edit
 import { ListarProveedorComponent } from './componentes/proveedor/listar-proveedor/listar-proveedor.component';
 import { AddProveedorComponent } from './componentes/proveedor/add-proveedor/add-proveedor.component';
 import { EditProveedorComponent } from './componentes/proveedor/edit-proveedor/edit-proveedor.component';
+import { ListarUsuarioComponent } from './componentes/usuario/listar-usuario/listar-usuario.component';
 
 const routes: Routes = [
   {path: 'productos', component:ListarProductoComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'editarProducto', component:EditProductoComponent},
   {path: 'proveedores', component: ListarProveedorComponent},
   {path:'nuevoProveedor', component:AddProveedorComponent},
-  {path:'editarProveedor', component:EditProveedorComponent}
+  {path:'editarProveedor', component:EditProveedorComponent},
+  {path: 'usuarios', component:ListarUsuarioComponent}
 
 ];
 

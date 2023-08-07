@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Estado, Proveedor } from 'src/app/modelos';
-import { ProveedorService } from 'src/app/servicio/proveedor.service';
+import { catchError } from 'rxjs';
+import { Estado, Proveedor, Rol } from 'src/app/modelos';
+import { ProveedorService,EstadoService,RolService } from 'src/app/servicio';
 
 @Component({
   selector: 'app-listar-proveedor',
@@ -12,28 +13,51 @@ export class ListarProveedorComponent implements OnInit {
 
   proveedores?: Proveedor[];
   estados: Estado[] = [];
+  roles: Rol[] = [];
 
-  constructor(private proveedorService:ProveedorService,private router: Router){}
+  constructor(
+    private proveedorService:ProveedorService,
+    private estadoService: EstadoService,
+    private rolService: RolService,
+    private router: Router){}
 
   ngOnInit(): void {
-    this.proveedorService.getProveedorActivo().subscribe(
-      data=>{
-        this.proveedores=data;
-        console.log(data);
-      },
-      error=>{
-        console.log(error);
-      }
-    );
-    this.proveedorService.getEstado().subscribe(
-      data => {
-        this.estados = data;
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.obtenerProveedores();
+    this.obtenerRoles();
+    this.obtenerEstados();
+  }
+
+  obtenerProveedores(): void {
+    this.proveedorService.getProveedoresActivos().pipe(
+      catchError(error => {
+        console.log('Error al obtener proveedores activos:', error);
+        return [];
+      })
+    ).subscribe(data => {
+      this.proveedores = data;
+    });
+  }
+
+  obtenerRoles(): void {
+    this.rolService.getRoles().pipe(
+      catchError(error => {
+        console.log('Error al obtener roles:', error);
+        return [];
+      })
+    ).subscribe(data => {
+      this.roles = data;
+    });
+  }
+
+  obtenerEstados(): void {
+    this.estadoService.getEstados().pipe(
+      catchError(error => {
+        console.log('Error al obtener estados:', error);
+        return [];
+      })
+    ).subscribe(data => {
+      this.estados = data;
+    });
   }
 
   getEstadoNombre(id_estado:number):string{

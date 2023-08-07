@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
     EditProveedorComponent,
     ListarUsuarioComponent,
     ListarClienteComponent,
+    ListarUsuarioComponent,
     LoginComponent
 
   ],

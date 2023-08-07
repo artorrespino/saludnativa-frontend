@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriaProducto, Producto, Proveedor } from 'src/app/modelos';
-import { ProductoService } from 'src/app/servicio';
-import { ListadoService } from 'src/app/servicio/listados.service';
+import { ProductoService, ProveedorService } from 'src/app/servicio';
+import { CategoriaService } from 'src/app/servicio/categoria.service';
 
 @Component({
   selector: 'app-edit-producto',
@@ -12,29 +12,34 @@ import { ListadoService } from 'src/app/servicio/listados.service';
 export class EditProductoComponent implements OnInit {
 
   producto: Producto= new Producto();
-  listaCategorias: CategoriaProducto[] = [];
-  listaProveedores: Proveedor[] = [];
+
+  listaCategorias: CategoriaProducto[] = []; // Lista de categorías
+  listaProveedores: Proveedor[] = []; // Lista de proveedores
   selectedImage: string | ArrayBuffer | null = null;
 
   constructor(
     private router:Router, 
     private productoService:ProductoService,
-    private listadosService: ListadoService
+    private categoriaService: CategoriaService,
+    private proveedorService: ProveedorService
     ) { }
 
   ngOnInit(): void {
-    this.listadosService.listaCategorias$.subscribe((categorias) => {
-      this.listaCategorias = categorias;
-    });
-
-    this.listadosService.listaProveedores$.subscribe((proveedores) => {
-      this.listaProveedores = proveedores;
-    });
-
-    this.listadosService.obtenerCategorias();
-    this.listadosService.obtenerProveedores();
-
+    this.obtenerCategorias();
+    this.obtenerProveedores();
     this.editar();
+  }
+
+  obtenerCategorias(): void {
+    this.categoriaService.getCategorias().subscribe(data => {
+      this.listaCategorias = data;
+    });
+  }
+
+  obtenerProveedores(): void {
+    this.proveedorService.getProveedoresActivos().subscribe(data => {
+      this.listaProveedores = data;
+    });
   }
 
   editar(){

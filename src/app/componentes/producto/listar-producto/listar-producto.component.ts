@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs';
 import { CategoriaProducto, Producto,Proveedor } from 'src/app/modelos';
-import { ProductoService } from 'src/app/servicio';
+import { ProductoService, ProveedorService, CategoriaService } from 'src/app/servicio';
 
 @Component({
   selector: 'app-listar-producto',
@@ -14,36 +15,50 @@ export class ListarProductoComponent implements OnInit {
   categoriaProducto: CategoriaProducto[] = [];
   proveedor: Proveedor[] = [];
 
-  constructor(private productoService:ProductoService, private router: Router){}
+  constructor(
+    private productoService: ProductoService,
+    private proveedorService: ProveedorService,
+    private categoriaService: CategoriaService,
+    private router: Router
+    ){}
 
   ngOnInit(): void {
-    this.productoService.getProductos().subscribe(
-      data=>{
-        this.productos=data;
-        console.log(data);
-      },
-      error=>{
-        console.log(error);
-      }
-    );
-    this.productoService.getCategoriaProducto().subscribe(
-      data => {
-        this.categoriaProducto = data;
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      }
-    );
-    this.productoService.getProveedor().subscribe(
-      data => {
-        this.proveedor = data;
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.obtenerProductos();
+    this.obtenerCategorias();
+    this.obtenerProveedores();
+    
+  }
+  obtenerProductos(): void {
+    this.productoService.getProductos().pipe(
+      catchError(error => {
+        console.log('Error al obtener listado de productos:', error);
+        return [];
+      })
+    ).subscribe(data => {
+      this.productos = data;
+    });
+  }
+
+  obtenerCategorias(): void {
+    this.categoriaService.getCategorias().pipe(
+      catchError(error => {
+        console.log('Error al obtener categorías de productos:', error);
+        return [];
+      })
+    ).subscribe(data => {
+      this.categoriaProducto = data;
+    });
+  }
+
+  obtenerProveedores(): void {
+    this.proveedorService.getProveedoresActivos().pipe(
+      catchError(error => {
+        console.log('Error al obtener proveedores activos:', error);
+        return [];
+      })
+    ).subscribe(data => {
+      this.proveedor = data;
+    });
   }
 
   getCategoriaProductoDescripcion(id_categoria_producto:number):string{
@@ -60,21 +75,24 @@ export class ListarProductoComponent implements OnInit {
     this.router.navigate(['nuevoProducto']);
   }
   editar(producto:Producto):void{
-    if (producto && producto.id_producto) {
+    if (producto?.id_producto) {
       localStorage.setItem("id", producto.id_producto.toString());
       this.router.navigate(['editarProducto']);
     }
   }
   eliminar(producto: Producto): void {
-    this.productoService.deleteProducto(producto).subscribe(
-      data => {
-        console.log(data.id_producto)
-        this.productos = this.productos!.filter((p)=> p.id_producto !== producto.id_producto);
-      },
-      error => {
-        console.log(error)
-      }
-    );
+    if (!producto) {
+    return;
+  }
+
+  this.productoService.deleteProducto(producto).subscribe(
+    () => {
+      this.productos = this.productos!.filter(p => p.id_producto !== producto.id_producto);
+    },
+    error => {
+      console.log(error);
+    }
+  );
   }
 
 

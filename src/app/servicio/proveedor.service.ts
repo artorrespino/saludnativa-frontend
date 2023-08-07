@@ -1,45 +1,51 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Estado, Proveedor } from '../modelos';
-import { url } from 'inspector';
+import { Estado, Proveedor,Rol } from '../modelos';
+import { ApiService } from './api.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProveedorService {
 
-  constructor(private http:HttpClient) { }
-  url = 'http://localhost:8080/api/proveedores';
+  private endpoint = 'proveedores';
+  http: any;
 
-  getProveedor() {
-    return this.http.get<Proveedor[]>(this.url);
+  constructor(private apiService: ApiService) { }
+
+  getProveedores(): Observable<Proveedor[]>{
+    return this.apiService.get<Proveedor[]>(this.endpoint);
   }
 
-  getProveedorActivo(){
-    const urlProveedorActivo = 'http://localhost:8080/api/proveedoresactivos';
-    return this.http.get<Proveedor[]>(urlProveedorActivo);
-
+  getProveedoresActivos(): Observable<Proveedor[]> {
+    const endpoint = 'proveedoresactivos';
+    return this.apiService.get<Proveedor[]>(endpoint);
   }
 
-  createProveedor(proveedor: Proveedor){7
-    
-    return this.http.post<Proveedor>(this.url, proveedor);
+  createProveedor(proveedor: Proveedor): Observable<Proveedor> {
+    return this.apiService.post<Proveedor>(this.endpoint, proveedor);
   }
 
-  getProveedorId(id:number){
-    return this.http.get<Proveedor>(this.url+"/"+id);
+  getProveedorId(id: number): Observable<Proveedor> {
+    return this.apiService.get<Proveedor>(`${this.endpoint}/${id}`);
   }
 
-  updateProveedor(proveedor:Proveedor){
-    return this.http.put<Proveedor>(this.url,proveedor);
+  updateProveedor(proveedor: Proveedor): Observable<Proveedor> {
+    return this.apiService.put<Proveedor>(this.endpoint, proveedor);
   }
 
-  deleteProveedor(proveedor:Proveedor){
-    return this.http.delete<Proveedor>(this.url+"/"+proveedor.id_proveedor);
+  deleteProveedor(proveedor: Proveedor): Observable<Proveedor> {
+    return this.apiService.delete<Proveedor>(`${this.endpoint}/${proveedor.id_proveedor}`);
   }
 
-  getEstado() {
-    const urlEstado = 'http://localhost:8080/api/estados';
-    return this.http.get<Estado[]>(urlEstado);
+  getEstados(): Observable<Estado[]> {
+    const endpoint = 'estados';
+    return this.apiService.get<Estado[]>(endpoint);
+  }
+
+  getRoles():  Observable<Rol[]> {
+    const endpoint = 'rol';
+    return this.apiService.get<Rol[]>(endpoint);
+
   }
 }

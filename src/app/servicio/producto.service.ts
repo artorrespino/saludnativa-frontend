@@ -1,45 +1,45 @@
 import { Injectable } from '@angular/core';
-import { CategoriaProducto } from '../modelos/CategoriaProducto';
-import { Producto } from '../modelos/Producto';
-import { HttpClient } from '@angular/common/http';
-import { Proveedor } from '../modelos/Proveedor';
+import { CategoriaProducto,Producto,Proveedor } from '../modelos/';
+import { Observable } from 'rxjs';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
 
-  constructor(private http:HttpClient) { }
-  url = 'http://localhost:8080/api/productos';
+  private endpoint = 'productos';
+  http: any;
 
-  getProductos(){
-    return this.http.get<Producto[]>(this.url);
+  constructor(private apiService: ApiService) { }
+
+  getProductos(): Observable<Producto[]>{
+    return this.apiService.get<Producto[]>(this.endpoint);
   }
 
-  createProducto(producto: Producto){7
-    
-    return this.http.post<Producto>(this.url, producto);
+  createProducto(producto: Producto): Observable<Producto> {
+    return this.apiService.post<Producto>(this.endpoint, producto);
   }
 
-  getProductoId(id:number){
-    return this.http.get<Producto>(this.url+"/"+id);
+  getProductoId(id: number): Observable<Producto> {
+    return this.apiService.get<Producto>(`${this.endpoint}/${id}`);
   }
 
-  updateProducto(producto:Producto){
-    return this.http.put<Producto>(this.url,producto);
+  updateProducto(producto: Producto): Observable<Producto> {
+    return this.apiService.put<Producto>(this.endpoint, producto);
   }
 
-  deleteProducto(producto:Producto){
-    return this.http.delete<Producto>(this.url+"/"+producto.id_producto);
+  deleteProducto(producto: Producto): Observable<Producto> {
+    return this.apiService.delete<Producto>(`${this.endpoint}/${producto.id_producto}`);
   }
 
-  getCategoriaProducto() {
-    const urlCategoriaProducto = 'http://localhost:8080/api/categorias';
-    return this.http.get<CategoriaProducto[]>(urlCategoriaProducto);
+  getCategoriaProducto(): Observable<CategoriaProducto[]> {
+    const endpoint = 'categorias';
+    return this.apiService.get<CategoriaProducto[]>(endpoint);
   }
 
-  getProveedor() {
-    const urlProveedor = 'http://localhost:8080/api/proveedores';
-    return this.http.get<Proveedor[]>(urlProveedor);
+  getProveedor(): Observable<Proveedor[]> {
+    const endpoint = 'proveedores';
+    return this.apiService.get<Proveedor[]>(endpoint);
   }
 }

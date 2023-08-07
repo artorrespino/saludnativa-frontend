@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriaProducto, Producto, Proveedor } from 'src/app/modelos';
-import { ProductoService } from 'src/app/servicio';
-import { ListadoService } from 'src/app/servicio/listados.service';
+import { ProductoService, ProveedorService } from 'src/app/servicio';
+import { CategoriaService } from 'src/app/servicio/categoria.service';
 
 @Component({
   selector: 'app-add-producto',
@@ -18,40 +18,31 @@ export class AddProductoComponent implements OnInit {
   selectedImage: string | ArrayBuffer | null = null;
 
   constructor(
-    private router:Router, 
+    private router: Router, 
     private productoService: ProductoService,
-    private listadosService: ListadoService
+    private categoriaService: CategoriaService,
+    private proveedorService: ProveedorService
     ) { }
 
   ngOnInit(): void {
-    this.listadosService.listaCategorias$.subscribe((categorias) => {
-      this.listaCategorias = categorias;
-    });
-
-    this.listadosService.listaProveedores$.subscribe((proveedores) => {
-      this.listaProveedores = proveedores;
-    });
-
-    this.listadosService.obtenerCategorias();
-    this.listadosService.obtenerProveedores();
+    this.obtenerCategorias();
+    this.obtenerProveedores();
   }
 
   obtenerCategorias(): void {
-    this.productoService.getCategoriaProducto().subscribe(data => {
+    this.categoriaService.getCategorias().subscribe(data => {
       this.listaCategorias = data;
     });
   }
 
   obtenerProveedores(): void {
-    this.productoService.getProveedor().subscribe(data => {
+    this.proveedorService.getProveedoresActivos().subscribe(data => {
       this.listaProveedores = data;
     });
   }
 
   guardar(producto: Producto){
-
     const { id_producto, ...productoSinID } = producto;
-    console.log(productoSinID)
     this.productoService.createProducto(productoSinID).subscribe(data=>{
       this.router.navigate(['productos']);
     });
