@@ -1,56 +1,51 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Estado,Usuario, Rol } from '../modelos';
+import { ApiService } from './api.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  constructor(private http:HttpClient) { }
-  url = 'http://localhost:8080/api/usuarios';
+  private endpoint = 'usuarios';
+  http: any;
 
-  getUsuario() {
-    return this.http.get<Usuario[]>(this.url);
-  }
-/*
-  getUsuarioActivo(){
-    const urlUsuarioActivo = 'http://localhost:8080/api/usuariosactivos';
-    return this.http.get<Usuario[]>(urlUsuarioActivo);
+  constructor(private apiService: ApiService) { }
 
-  }
-*/
-
-  createUsuario(usuario: Usuario){7
-    
-    return this.http.post<Usuario>(this.url, usuario);
+  getUsuarios(): Observable<Usuario[]>{
+    return this.apiService.get<Usuario[]>(this.endpoint);
   }
 
-  getUsuarioId(id:number){
-    return this.http.get<Usuario>(this.url+"/"+id);
+  getUsuariosActivos(): Observable<Usuario[]> {
+    const endpoint = 'usuariosactivos';
+    return this.apiService.get<Usuario[]>(endpoint);
+  }
+  
+  createUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.apiService.post<Usuario>(this.endpoint, usuario);
   }
 
-  updateUsuario(usuario:Usuario){
-    return this.http.put<Usuario>(this.url,usuario);
+  getUsuarioId(id: number): Observable<Usuario> {
+    return this.apiService.get<Usuario>(`${this.endpoint}/${id}`);
   }
 
-  deleteUsuario(usuario:Usuario){
-    return this.http.delete<Usuario>(this.url+"/"+usuario.id_usuario);
+  updateUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.apiService.put<Usuario>(this.endpoint, usuario);
   }
 
-  getRol() {
-    const urlRol = 'http://localhost:8080/api/rol';
-    return this.http.get<Rol[]>(urlRol);
+  deleteUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.apiService.delete<Usuario>(`${this.endpoint}/${usuario.id_usuario}`);
   }
 
-  getEstado() {
-    const urlEstado = 'http://localhost:8080/api/estados';
-    return this.http.get<Estado[]>(urlEstado);
+  getEstados(): Observable<Estado[]> {
+    const endpoint = 'estados';
+    return this.apiService.get<Estado[]>(endpoint);
   }
 
+  getRoles():  Observable<Rol[]> {
+    const endpoint = 'rol';
+    return this.apiService.get<Rol[]>(endpoint);
 
-
-
-
-
+  }
 }

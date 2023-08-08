@@ -7,6 +7,8 @@ import { ListarProveedorComponent } from './componentes/proveedor/listar-proveed
 import { AddProveedorComponent } from './componentes/proveedor/add-proveedor/add-proveedor.component';
 import { EditProveedorComponent } from './componentes/proveedor/edit-proveedor/edit-proveedor.component';
 import { ListarUsuarioComponent } from './componentes/usuario/listar-usuario/listar-usuario.component';
+import { AddUsuarioComponent } from './componentes/usuario/add-usuario/add-usuario.component';
+import { EditUsuarioComponent } from './componentes/usuario/edit-usuario/edit-usuario.component';
 
 const routes: Routes = [
   {path: 'productos', component:ListarProductoComponent},
@@ -15,7 +17,9 @@ const routes: Routes = [
   {path: 'proveedores', component: ListarProveedorComponent},
   {path:'nuevoProveedor', component:AddProveedorComponent},
   {path:'editarProveedor', component:EditProveedorComponent},
-  {path: 'usuarios', component:ListarUsuarioComponent}
+  {path: 'usuarios', component:ListarUsuarioComponent},
+  {path:'nuevoUsuario', component:AddUsuarioComponent},
+  {path:'editarUsuario', component:EditUsuarioComponent}
 
 ];
 

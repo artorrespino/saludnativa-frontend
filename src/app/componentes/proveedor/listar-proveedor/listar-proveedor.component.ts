@@ -75,9 +75,11 @@ export class ListarProveedorComponent implements OnInit {
     }
   }
   eliminar(proveedor: Proveedor): void {
+    if (!proveedor) {
+      return;
+    }
     this.proveedorService.deleteProveedor(proveedor).subscribe(
-      data => {
-        console.log(data.id_proveedor)
+      () => {
         this.proveedores = this.proveedores!.filter((p)=> p.id_proveedor !== proveedor.id_proveedor);
       },
       error => {

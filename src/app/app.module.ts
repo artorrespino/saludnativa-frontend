@@ -14,6 +14,8 @@ import { EditProveedorComponent } from './componentes/proveedor/edit-proveedor/e
 import { ListarUsuarioComponent } from './componentes/usuario/listar-usuario/listar-usuario.component';
 import { ListarClienteComponent } from './componentes/cliente/listar-cliente/listar-cliente.component';
 import { LoginComponent } from './login/login.component';
+import { AddUsuarioComponent } from './componentes/usuario/add-usuario/add-usuario.component';
+import { EditUsuarioComponent } from './componentes/usuario/edit-usuario/edit-usuario.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { LoginComponent } from './login/login.component';
     ListarUsuarioComponent,
     ListarClienteComponent,
     ListarUsuarioComponent,
-    LoginComponent
+    LoginComponent,
+    AddUsuarioComponent,
+    EditUsuarioComponent
 
   ],
   imports: [

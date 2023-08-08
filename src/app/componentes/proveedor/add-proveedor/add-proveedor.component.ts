@@ -24,6 +24,7 @@ export class AddProveedorComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerEstados();
+    this.obtenerRoles();
   }
 
   obtenerEstados(): void {
