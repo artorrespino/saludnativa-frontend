@@ -1,1 +1,4 @@
-import {Estado} from './Estado';
+
+export class Cliente{
+    
+}

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
-import { Estado, Proveedor, Rol } from 'src/app/modelos';
-import { ProveedorService,EstadoService,RolService } from 'src/app/servicio';
+import { Proveedor } from 'src/app/modelos';
+import { ProveedorService } from 'src/app/servicio';
 
 @Component({
   selector: 'app-listar-proveedor',
@@ -12,23 +12,17 @@ import { ProveedorService,EstadoService,RolService } from 'src/app/servicio';
 export class ListarProveedorComponent implements OnInit {
 
   proveedores?: Proveedor[];
-  estados: Estado[] = [];
-  roles: Rol[] = [];
 
   constructor(
     private proveedorService:ProveedorService,
-    private estadoService: EstadoService,
-    private rolService: RolService,
     private router: Router){}
 
   ngOnInit(): void {
     this.obtenerProveedores();
-    this.obtenerRoles();
-    this.obtenerEstados();
   }
 
   obtenerProveedores(): void {
-    this.proveedorService.getProveedoresActivos().pipe(
+    this.proveedorService.getProveedores().pipe(
       catchError(error => {
         console.log('Error al obtener proveedores activos:', error);
         return [];
@@ -38,39 +32,13 @@ export class ListarProveedorComponent implements OnInit {
     });
   }
 
-  obtenerRoles(): void {
-    this.rolService.getRoles().pipe(
-      catchError(error => {
-        console.log('Error al obtener roles:', error);
-        return [];
-      })
-    ).subscribe(data => {
-      this.roles = data;
-    });
-  }
-
-  obtenerEstados(): void {
-    this.estadoService.getEstados().pipe(
-      catchError(error => {
-        console.log('Error al obtener estados:', error);
-        return [];
-      })
-    ).subscribe(data => {
-      this.estados = data;
-    });
-  }
-
-  getEstadoNombre(id_estado:number):string{
-    const estado = this.estados.find(tipo=> tipo.id_estado === id_estado );
-    return estado ? estado.estado: 'Desconocido';
-  }
 
   nuevo(): void{
     this.router.navigate(['nuevoProveedor']);
   }
   editar(proveedor:Proveedor):void{
-    if (proveedor && proveedor.id_proveedor) {
-      localStorage.setItem("id", proveedor.id_proveedor.toString());
+    if (proveedor && proveedor.idProveedor) {
+      localStorage.setItem("id", proveedor.idProveedor.toString());
       this.router.navigate(['editarProveedor']);
     }
   }
@@ -80,7 +48,7 @@ export class ListarProveedorComponent implements OnInit {
     }
     this.proveedorService.deleteProveedor(proveedor).subscribe(
       () => {
-        this.proveedores = this.proveedores!.filter((p)=> p.id_proveedor !== proveedor.id_proveedor);
+        this.proveedores = this.proveedores!.filter((p)=> p.idProveedor !== proveedor.idProveedor);
       },
       error => {
         console.log(error)

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
-import { Estado, Usuario, Rol } from 'src/app/modelos';
-import { UsuarioService,EstadoService,RolService } from 'src/app/servicio';
+import { Usuario, Rol } from 'src/app/modelos';
+import { UsuarioService,RolService } from 'src/app/servicio';
 
 @Component({
   selector: 'app-listar-usuario',
@@ -12,23 +12,20 @@ import { UsuarioService,EstadoService,RolService } from 'src/app/servicio';
 export class ListarUsuarioComponent implements OnInit {
 
   usuarios?: Usuario[];
-  estados: Estado[] = [];
   roles: Rol[] = [];
 
   constructor(
     private usuarioService:UsuarioService,
-    private estadoService: EstadoService,
     private rolService: RolService,
     private router: Router){}
 
   ngOnInit(): void {
     this.obtenerUsuarios();
     this.obtenerRoles();
-    this.obtenerEstados();
   }
 
   obtenerUsuarios(): void {
-    this.usuarioService.getUsuariosActivos().pipe(
+    this.usuarioService.getUsuarios().pipe(
       catchError(error => {
         console.log('Error al obtener usuarios activos:', error);
         return [];
@@ -49,33 +46,17 @@ export class ListarUsuarioComponent implements OnInit {
     });
   }
 
-  obtenerEstados(): void {
-    this.estadoService.getEstados().pipe(
-      catchError(error => {
-        console.log('Error al obtener estados:', error);
-        return [];
-      })
-    ).subscribe(data => {
-      this.estados = data;
-    });
-  }
-
-  getRolNombre(id_rol:number):string{
-    const rol = this.roles.find(tipo=> tipo.id_rol === id_rol );
+  getRolNombre(idRol:number):string{
+    const rol = this.roles.find(tipo=> tipo.idRol === idRol );
     return rol ? rol.rol: 'Desconocido';
-  }
-
-  getEstadoNombre(id_estado:number):string{
-    const estado = this.estados.find(tipo=> tipo.id_estado === id_estado );
-    return estado ? estado.estado: 'Desconocido';
   }
 
   nuevo(): void{
     this.router.navigate(['nuevoUsuario']);
   }
   editar(usuario:Usuario):void{
-    if (usuario?.id_usuario) {
-      localStorage.setItem("id", usuario.id_usuario.toString());
+    if (usuario?.idUsuario) {
+      localStorage.setItem("id", usuario.idUsuario.toString());
       this.router.navigate(['editarUsuario']);
     }
   }
@@ -85,7 +66,7 @@ export class ListarUsuarioComponent implements OnInit {
     }
     this.usuarioService.deleteUsuario(usuario).subscribe(
       () => {
-        this.usuarios = this.usuarios!.filter((p)=> p.id_usuario !== usuario.id_usuario);
+        this.usuarios = this.usuarios!.filter((p)=> p.idUsuario !== usuario.idUsuario);
       },
       error => {
         console.log(error)

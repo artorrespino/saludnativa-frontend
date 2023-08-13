@@ -37,7 +37,7 @@ export class EditProductoComponent implements OnInit {
   }
 
   obtenerProveedores(): void {
-    this.proveedorService.getProveedoresActivos().subscribe(data => {
+    this.proveedorService.getProveedores().subscribe(data => {
       this.listaProveedores = data;
     });
   }
@@ -63,7 +63,7 @@ export class EditProductoComponent implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.selectedImage = reader.result;
-        this.producto.imagen_producto = this.selectedImage?.toString() || '';
+        this.producto.imagen = this.selectedImage?.toString() || '';
       };
     }
   }

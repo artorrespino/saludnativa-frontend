@@ -36,13 +36,13 @@ export class AddProductoComponent implements OnInit {
   }
 
   obtenerProveedores(): void {
-    this.proveedorService.getProveedoresActivos().subscribe(data => {
+    this.proveedorService.getProveedores().subscribe(data => {
       this.listaProveedores = data;
     });
   }
 
   guardar(producto: Producto){
-    const { id_producto, ...productoSinID } = producto;
+    const { idProducto, ...productoSinID } = producto;
     this.productoService.createProducto(productoSinID).subscribe(data=>{
       this.router.navigate(['productos']);
     });
@@ -55,7 +55,7 @@ export class AddProductoComponent implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.selectedImage = reader.result;
-        this.modelProducto.imagen_producto = this.selectedImage?.toString() || '';
+        this.modelProducto.imagen = this.selectedImage?.toString() || '';
       };
     }
   }

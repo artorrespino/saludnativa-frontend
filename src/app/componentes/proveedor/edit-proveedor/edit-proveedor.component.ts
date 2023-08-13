@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Estado, Proveedor } from 'src/app/modelos';
+import { Proveedor } from 'src/app/modelos';
 import { ProveedorService } from 'src/app/servicio/proveedor.service';
 
 @Component({
@@ -11,7 +11,6 @@ import { ProveedorService } from 'src/app/servicio/proveedor.service';
 export class EditProveedorComponent implements OnInit {
 
   proveedor: Proveedor = new Proveedor();
-  listaEstado: Estado[] = [];
 
   constructor(
     private router:Router, 

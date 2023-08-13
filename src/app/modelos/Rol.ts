@@ -1,9 +1,9 @@
 export class Rol{
-    id_rol:number;
+    idRol:number;
     rol:string;
 
     constructor(){
-        this.id_rol=0;
+        this.idRol=0;
         this.rol="";
     }
 }

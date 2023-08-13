@@ -16,14 +16,14 @@
     </thead>
     <tbody>
         <tr *ngFor="let producto of productos">
-            <td>{{producto.id_producto}}</td>
-            <td>{{producto.nombre_producto}}</td>
-            <td>{{producto.imagen_producto}}</td>
-            <td>{{producto.descripcion_producto}}</td>
-            <td>{{producto.precio_unitario_producto}}</td>
-            <td>{{producto.stock_producto}}</td>
-            <td>{{producto.categoriaProducto.categoria_producto}}</td>
-            <td>{{producto.proveedor.nombre_proveedor}}</td>
+            <td>{{producto.idProducto}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.imagen}}</td>
+            <td>{{producto.descripcion}}</td>
+            <td>{{producto.precioUnitario}}</td>
+            <td>{{producto.stock}}</td>
+            <td>{{producto.categoriaProducto.categoria}}</td>
+            <td>{{producto.proveedor.nombre}}</td>
             <td>
                 <button (click)="editar(producto)" class="btn btn-primary">Editar</button>
                 <button (click)="eliminar(producto)" class="btn btn-danger">Eliminar</button>

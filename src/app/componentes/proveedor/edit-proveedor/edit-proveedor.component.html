@@ -5,20 +5,24 @@
     <div class="card-body">
         <form (submit)="actualizar(proveedor)">
             <div class="form-group">
-                <label for="nombre_proveedor">Nombre del proveedor:</label>
-                <input type="text" [(ngModel)]="proveedor.nombre_proveedor" id="nombre_proveedor" name="nombre_proveedor" class="form-control" placeholder="Ingrese el nombre del proveedor" title="Nombre del proveedor">
+                <label for="ruc">RUC:</label>
+                <input type="text" [(ngModel)]="proveedor.ruc" id="ruc" name="ruc" class="form-control" placeholder="Ingrese RUC del proveedor" title="RUC proveedor">
             </div>
             <div class="form-group">
-                <label for="contacto_proveedor">Persona de contacto :</label>
-                <input type="text" [(ngModel)]="proveedor.contacto_proveedor" id="contacto_proveedor" name="contacto_proveedor" class="form-control" placeholder="Ingrese nombre del Contacto del proveedor" title="Contacto del proveedor">
+                <label for="nombre">Nombre del proveedor:</label>
+                <input type="text" [(ngModel)]="proveedor.nombre" id="nombre" name="nombre" class="form-control" placeholder="Ingrese el nombre del proveedor" title="Nombre del proveedor">
             </div>
             <div class="form-group">
-                <label for="email_proveedor">Email :</label>
-                <input type="text" [(ngModel)]="proveedor.email_proveedor" id="email_proveedor" name="email_proveedor" class="form-control" placeholder="Ingrese email del proveedor" title="Email del proveedor">
+                <label for="contacto">Persona de contacto :</label>
+                <input type="text" [(ngModel)]="proveedor.contacto" id="contacto" name="contacto" class="form-control" placeholder="Ingrese nombre del Contacto del proveedor" title="Contacto del proveedor">
             </div>
             <div class="form-group">
-                <label for="celular_proveedor">Celular :</label>
-                <input type="text" [(ngModel)]="proveedor.celular_proveedor" id="celular_proveedor" name="celular_proveedor" class="form-control" placeholder="Ingrese el celular del proveedor" title="Celular del proveedor">
+                <label for="email">Email :</label>
+                <input type="text" [(ngModel)]="proveedor.email" id="email" name="email" class="form-control" placeholder="Ingrese email del proveedor" title="Email del proveedor">
+            </div>
+            <div class="form-group">
+                <label for="celular">Celular :</label>
+                <input type="text" [(ngModel)]="proveedor.celular" id="celular" name="celular" class="form-control" placeholder="Ingrese el celular del proveedor" title="Celular del proveedor">
             </div>
             
             <button type="submit"  class="btn btn-danger">Guardar</button>

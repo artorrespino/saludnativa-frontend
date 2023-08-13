@@ -8,29 +8,37 @@ import { CategoriaProducto } from '../modelos';
 })
 export class CategoriaService {
 
-  private endpoint = 'categorias';
-  http: any;
+    // Define las URLs base para tus tres microservicios
+    //private baseUrlMicroservicio1 = 'http://localhost:8080/api';
+    //private baseUrlMicroservicio2 = 'http://localhost:8081/api';
+    private baseUrlMicroservicio3 = 'http://localhost:8082/api';
+    
 
   constructor(private apiService: ApiService) { }
 
   getCategorias(): Observable<CategoriaProducto[]>{
-    return this.apiService.get<CategoriaProducto[]>(this.endpoint);
+    const endpoint = 'categorias';
+    return this.apiService.get<CategoriaProducto[]>(this.baseUrlMicroservicio3,endpoint);
   }
 
   createCategoria(categoria: CategoriaProducto): Observable<CategoriaProducto> {
-    return this.apiService.post<CategoriaProducto>(this.endpoint, categoria);
+    const endpoint = 'categorias';
+    return this.apiService.post<CategoriaProducto>(this.baseUrlMicroservicio3,endpoint, categoria);
   }
 
   getCategoriaId(id: number): Observable<CategoriaProducto> {
-    return this.apiService.get<CategoriaProducto>(`${this.endpoint}/${id}`);
+    const endpoint = 'categorias';
+    return this.apiService.get<CategoriaProducto>(this.baseUrlMicroservicio3,`${endpoint}/${id}`);
   }
 
   updateCategoria(categoria: CategoriaProducto): Observable<CategoriaProducto> {
-    return this.apiService.put<CategoriaProducto>(this.endpoint, categoria);
+    const endpoint = 'categorias';
+    return this.apiService.put<CategoriaProducto>(this.baseUrlMicroservicio3,endpoint, categoria);
   }
 
   deleteCategoria(categoria: CategoriaProducto): Observable<CategoriaProducto> {
-    return this.apiService.delete<CategoriaProducto>(`${this.endpoint}/${categoria.id_categoria_producto}`);
+    const endpoint = 'categorias';
+    return this.apiService.delete<CategoriaProducto>(this.baseUrlMicroservicio3,`${endpoint}/${categoria.idCategoria}`);
   }
 
 }

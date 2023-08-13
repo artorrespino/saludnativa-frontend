@@ -51,7 +51,7 @@ export class ListarProductoComponent implements OnInit {
   }
 
   obtenerProveedores(): void {
-    this.proveedorService.getProveedoresActivos().pipe(
+    this.proveedorService.getProveedores().pipe(
       catchError(error => {
         console.log('Error al obtener proveedores activos:', error);
         return [];
@@ -61,22 +61,22 @@ export class ListarProductoComponent implements OnInit {
     });
   }
 
-  getCategoriaProductoDescripcion(id_categoria_producto:number):string{
-    const categoriaProducto = this.categoriaProducto.find(tipo=> tipo.id_categoria_producto === id_categoria_producto);
-    return categoriaProducto ? categoriaProducto.categoria_producto: 'Desconocido';
+  getCategoriaProductoDescripcion(idCategoria:number):string{
+    const categoriaProducto = this.categoriaProducto.find(tipo=> tipo.idCategoria === idCategoria);
+    return categoriaProducto ? categoriaProducto.categoria: 'Desconocido';
   }
 
-  getProveedorNombre(id_proveedor:number):string{
-    const proveedor = this.proveedor.find(tipo=> tipo.id_proveedor === id_proveedor );
-    return proveedor ? proveedor.nombre_proveedor: 'Desconocido';
+  getProveedorNombre(idProveedor:number):string{
+    const proveedor = this.proveedor.find(tipo=> tipo.idProveedor === idProveedor );
+    return proveedor ? proveedor.nombre: 'Desconocido';
   }
 
   nuevo(): void{
     this.router.navigate(['nuevoProducto']);
   }
   editar(producto:Producto):void{
-    if (producto?.id_producto) {
-      localStorage.setItem("id", producto.id_producto.toString());
+    if (producto?.idProducto) {
+      localStorage.setItem("id", producto.idProducto.toString());
       this.router.navigate(['editarProducto']);
     }
   }
@@ -87,7 +87,7 @@ export class ListarProductoComponent implements OnInit {
 
   this.productoService.deleteProducto(producto).subscribe(
     () => {
-      this.productos = this.productos!.filter(p => p.id_producto !== producto.id_producto);
+      this.productos = this.productos!.filter(p => p.idProducto !== producto.idProducto);
     },
     error => {
       console.log(error);

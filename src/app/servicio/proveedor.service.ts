@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Estado, Proveedor,Rol } from '../modelos';
+import { Proveedor} from '../modelos';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
 
@@ -8,44 +8,37 @@ import { Observable } from 'rxjs';
 })
 export class ProveedorService {
 
-  private endpoint = 'proveedores';
-  http: any;
+  // Define las URLs base para tus tres microservicios
+    //private baseUrlMicroservicio1 = 'http://localhost:8080/api';
+    //private baseUrlMicroservicio2 = 'http://localhost:8081/api';
+    private baseUrlMicroservicio3 = 'http://localhost:8082/api';
+
 
   constructor(private apiService: ApiService) { }
 
   getProveedores(): Observable<Proveedor[]>{
-    return this.apiService.get<Proveedor[]>(this.endpoint);
-  }
-
-  getProveedoresActivos(): Observable<Proveedor[]> {
-    const endpoint = 'proveedoresactivos';
-    return this.apiService.get<Proveedor[]>(endpoint);
+    const endpoint = 'proveedores';
+    return this.apiService.get<Proveedor[]>(this.baseUrlMicroservicio3,endpoint);
   }
 
   createProveedor(proveedor: Proveedor): Observable<Proveedor> {
-    return this.apiService.post<Proveedor>(this.endpoint, proveedor);
+    const endpoint = 'proveedores';
+    return this.apiService.post<Proveedor>(this.baseUrlMicroservicio3,endpoint, proveedor);
   }
 
   getProveedorId(id: number): Observable<Proveedor> {
-    return this.apiService.get<Proveedor>(`${this.endpoint}/${id}`);
+    const endpoint = 'proveedores';
+    return this.apiService.get<Proveedor>(this.baseUrlMicroservicio3,`${endpoint}/${id}`);
   }
 
   updateProveedor(proveedor: Proveedor): Observable<Proveedor> {
-    return this.apiService.put<Proveedor>(this.endpoint, proveedor);
+    const endpoint = 'proveedores';
+    return this.apiService.put<Proveedor>(this.baseUrlMicroservicio3,endpoint, proveedor);
   }
 
   deleteProveedor(proveedor: Proveedor): Observable<Proveedor> {
-    return this.apiService.delete<Proveedor>(`${this.endpoint}/${proveedor.id_proveedor}`);
+    const endpoint = 'proveedores';
+    return this.apiService.delete<Proveedor>(this.baseUrlMicroservicio3,`${endpoint}/${proveedor.idProveedor}`);
   }
 
-  getEstados(): Observable<Estado[]> {
-    const endpoint = 'estados';
-    return this.apiService.get<Estado[]>(endpoint);
-  }
-
-  getRoles():  Observable<Rol[]> {
-    const endpoint = 'rol';
-    return this.apiService.get<Rol[]>(endpoint);
-
-  }
 }
