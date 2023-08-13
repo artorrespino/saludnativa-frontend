@@ -1,0 +1,395 @@
+// 1
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 3
+  },
+  "descripcion": "string",
+  "imagen": "string",
+  "nombre": "Encurtido palmito de pijuayo biolux",
+  "precioUnitario": 16.20,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 3,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 10
+}
+
+// 2
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 3
+  },
+  "descripcion": "string",
+  "imagen": "string",
+  "nombre": "Encurtidos ajies nativos mixto – Pimental",
+  "precioUnitario": 23.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 3,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 15
+}
+
+// 3
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 3
+  },
+  "descripcion": "string",
+  "imagen": "string",
+  "nombre": "Salsa aji charapita amarilla Pimental",
+  "precioUnitario": 23.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 3,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+
+// 4
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 1
+  },
+  "descripcion": "Aceite de coco natural en envase de vidrio de 200 ml",
+  "imagen": "string",
+  "nombre": "Aceite de coco 250 ml Ecoleaf",
+  "precioUnitario": 41.60,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 5,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+
+// 5
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 1
+  },
+  "descripcion": "Aceite de coco, en botella de 250 ml",
+  "imagen": "string",
+  "nombre": "Aceite de coco 250 ml USHE",
+  "precioUnitario": 59.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 5,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+
+// 6
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 1
+  },
+  "descripcion": "Aceite natural con olor a Eucalipto, en botella de 50 ml",
+  "imagen": "string",
+  "nombre": "Aceite eucalipto",
+  "precioUnitario": 59.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 3,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+// 7
+
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 5
+  },
+  "descripcion": "Filantes antiestres de cascara de camu camu y eucalipto en doy pack",
+  "imagen": "string",
+  "nombre": "Te de camu camu Cote Fruits",
+  "precioUnitario": 14.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 2,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+
+// 8
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 5
+  },
+  "descripcion": "Frutos ucayalinos deshidratados, en doy pack de 100 gr",
+  "imagen": "string",
+  "nombre": "Snack fruto deshidratado mixto",
+  "precioUnitario": 23.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 2,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+// 9
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 5
+  },
+  "descripcion": "Frutos ucayalinos deshidratados, en doy pack de 100 gr",
+  "imagen": "string",
+  "nombre": "Snack fruto deshidratado cocona con azucar",
+  "precioUnitario": 23.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 2,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 30
+}
+// 10
+
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 5
+  },
+  "descripcion": "Frutos ucayalinos deshidratados, en doy pack de 100 gr",
+  "imagen": "string",
+  "nombre": "Snack fruta desitrada pina golden",
+  "precioUnitario": 23.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 2,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 19
+}
+// 11
+
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 5
+  },
+  "descripcion": "Frutos ucayalinos deshidratados, en doy pack de 100 gr",
+  "imagen": "string",
+  "nombre": "Snack fruta deshidratada coco",
+  "precioUnitario": 23.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 2,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 30
+}
+// 12
+
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 5
+  },
+  "descripcion": "Frutos ucayalinos deshidratados, en doy pack de 100 gr",
+  "imagen": "string",
+  "nombre": "Snack fruto deshidratado cocona con sal",
+  "precioUnitario": 23.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 2,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+// 13
+
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 5
+  },
+  "descripcion": "Harina de camu camu ucayalino en doy pack de 150 gr",
+  "imagen": "string",
+  "nombre": "Harina de camu camu Cote Fruits",
+  "precioUnitario": 23.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 2,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+// 14
+
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 4
+  },
+  "descripcion": "Chancaca 100% natural",
+  "imagen": "string",
+  "nombre": "Chancaca 250 gr",
+  "precioUnitario": 3.50,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 2,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+// 15
+
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 4
+  },
+  "descripcion": "Chancaca 100% natural",
+  "imagen": "string",
+  "nombre": "Chancaca 500 gr",
+  "precioUnitario": 7.50,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 2,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+
+// 16
+
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 2
+  },
+  "descripcion": "Cafe Honey San Carlos tostado y molido del Alto Ucayali en presentación Doypack de 250 gr",
+  "imagen": "string",
+  "nombre": "Café Honey San Carlos",
+  "precioUnitario": 32.50,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 1,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+// 17
+
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 2
+  },
+  "descripcion": "Cafe ucayalino de finoa roma en caja de carton de 250 gr",
+  "imagen": "string",
+  "nombre": "Cafe huiso Curimana",
+  "precioUnitario": 45.00,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 1,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 20
+}
+// 18
+
+{
+  "categoriaProducto": {
+    "categoria": "string",
+    "idCategoria": 2
+  },
+  "descripcion": "Cafe ucayalino de finoa roma en caja de carton de 250 gr",
+  "imagen": "string",
+  "nombre": "Cafe joshin Curimana",
+  "precioUnitario": 59.40,
+  "proveedor": {
+    "celular": "string",
+    "contacto": "string",
+    "email": "string",
+    "estado": "string",
+    "idProveedor": 1,
+    "nombre": "string",
+    "ruc": "string"
+  },
+  "stock": 10
+}

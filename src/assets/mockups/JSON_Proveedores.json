@@ -1,0 +1,45 @@
+// 1
+{
+  "celular": "985777854",
+  "contacto": "Juan Rodriguez",
+  "email": "pedidos@altouruya.com",
+  "estado": "string",
+  "nombre": "Consorcio Alto Uruya S.A.C.",
+  "ruc": "20606104554"
+}
+// 2
+{
+  "celular": "925414854",
+  "contacto": "Erick Villalobos",
+  "email": "pedidos@tiendaamazonica.com",
+  "estado": "string",
+  "nombre": "La Tienda Amazónica S.A.C.",
+  "ruc": "20603658206"
+}
+// 3
+{
+  "celular": "985685854",
+  "contacto": "Juan Rodriguez",
+  "email": "pedidos@altouruya.com",
+  "estado": "string",
+  "nombre": "Marketing amazónico S.A.C.",
+  "ruc": "20602100210"
+}
+// 4
+{
+  "celular": "985412854",
+  "contacto": "Juan Rodriguez",
+  "email": "pedidos@altouruya.com",
+  "estado": "string",
+  "nombre": "Distribuciones Lumiere E.I.R.L.",
+  "ruc": "20605662332"
+}
+// 5
+{
+  "celular": "952141854",
+  "contacto": "Lesly Delfin",
+  "email": "pedidos@altouruya.com",
+  "estado": "string",
+  "nombre": "Cooperativa COTO-RPGC-Ucayali",
+  "ruc": "20600256808"
+}

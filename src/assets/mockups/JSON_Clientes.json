@@ -1,0 +1,99 @@
+[
+{
+  "apMaterno": "Pino",
+  "apPaterno": "Torres",
+  "celular": "963852741",
+  "cliente": {
+    "fecNacimiento": "1987-07-25",
+    "idCliente": 0,
+    "idUsuario": 0,
+    "numDocIdentidad": "44585235",
+    "tipoDocIdentidad": {
+      "idTipoDocIdentidad": 1,
+      "tipoDocIdentidad": "string"
+    }
+  },
+  "contrasenia": "123456",
+  "email": "atorres@gmail.com",
+  "estado": "string",
+  "intentosLogin": 1,
+  "nombres": "Alexandra",
+  "rol": {
+    "idRol": 1,
+    "rol": "string"
+  }
+},
+{
+  "apMaterno": "Inga",
+  "apPaterno": "Lazo",
+  "celular": "987888744",
+  "cliente": {
+    "fecNacimiento": "1995-06-07",
+    "idCliente": 0,
+    "idUsuario": 0,
+    "numDocIdentidad": "48585235",
+    "tipoDocIdentidad": {
+      "idTipoDocIdentidad": 1,
+      "tipoDocIdentidad": "string"
+    }
+  },
+  "contrasenia": "123456",
+  "email": "glazo@gmail.com",
+  "estado": "string",
+  "intentosLogin": 1,
+  "nombres": "Ghelary",
+  "rol": {
+    "idRol": 1,
+    "rol": "string"
+  }
+},
+{
+  "apMaterno": "Alvarez",
+  "apPaterno": "Perez",
+  "celular": "974888744",
+  "cliente": {
+    "fecNacimiento": "2000-11-15",
+    "idCliente": 0,
+    "idUsuario": 0,
+    "numDocIdentidad": "65845235",
+    "tipoDocIdentidad": {
+      "idTipoDocIdentidad": 1,
+      "tipoDocIdentidad": "string"
+    }
+  },
+  "contrasenia": "123456",
+  "email": "sperez@gmail.com",
+  "estado": "string",
+  "intentosLogin": 1,
+  "nombres": "Stephany",
+  "rol": {
+    "idRol": 1,
+    "rol": "string"
+  }
+},
+{
+  "apMaterno": "Torres",
+  "apPaterno": "Romero",
+  "celular": "987878747",
+  "cliente": {
+    "fecNacimiento": "1993-01-18",
+    "idCliente": 0,
+    "idUsuario": 0,
+    "numDocIdentidad": "56585235",
+    "tipoDocIdentidad": {
+      "idTipoDocIdentidad": 1,
+      "tipoDocIdentidad": "string"
+    }
+  },
+  "contrasenia": "123456",
+  "email": "eromero@gmail.com",
+  "estado": "string",
+  "intentosLogin": 1,
+  "nombres": "Edel",
+  "rol": {
+    "idRol": 1,
+    "rol": "string"
+  }
+},
+
+]
