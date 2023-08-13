@@ -16,6 +16,8 @@ import { ListarClienteComponent } from './componentes/cliente/listar-cliente/lis
 import { LoginComponent } from './login/login.component';
 import { AddUsuarioComponent } from './componentes/usuario/add-usuario/add-usuario.component';
 import { EditUsuarioComponent } from './componentes/usuario/edit-usuario/edit-usuario.component';
+import { CatalogoComponent } from './componentes/pedido/catalogo/catalogo.component';
+import { CarritoComprasComponent } from './componentes/pedido/carrito-compras/carrito-compras.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { EditUsuarioComponent } from './componentes/usuario/edit-usuario/edit-us
     ListarUsuarioComponent,
     LoginComponent,
     AddUsuarioComponent,
-    EditUsuarioComponent
+    EditUsuarioComponent,
+    CatalogoComponent,
+    CarritoComprasComponent
 
   ],
   imports: [
