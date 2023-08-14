@@ -31,7 +31,7 @@ export class ListarUsuarioComponent implements OnInit {
         return [];
       })
     ).subscribe(data => {
-      this.usuarios = data;
+      this.usuarios = [...data].filter(usuario => usuario.estado === 'Activo');
     });
   }
 
@@ -66,7 +66,7 @@ export class ListarUsuarioComponent implements OnInit {
     }
     this.usuarioService.deleteUsuario(usuario).subscribe(
       () => {
-        this.usuarios = this.usuarios!.filter((p)=> p.idUsuario !== usuario.idUsuario);
+        this.usuarios = this.usuarios!.filter((user)=> user.idUsuario !== usuario.idUsuario);
       },
       error => {
         console.log(error)

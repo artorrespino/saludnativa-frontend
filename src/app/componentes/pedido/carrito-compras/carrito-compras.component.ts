@@ -23,10 +23,8 @@ export class CarritoComprasComponent implements OnInit {
    
     this.carrito = this.catalogo.obtenerItems();
     this.total = this.catalogo.calcularTotal();
-
    }
-
-  ngOnInit(): void {
+    ngOnInit(): void {
   }
 
 
@@ -36,47 +34,45 @@ export class CarritoComprasComponent implements OnInit {
 
   
   eliminarItemCarrito(producto:Producto){
-    const index=this.carrito.findIndex(value => value.idProducto===producto.idProducto);
-    if(index>-1){
-      this.carrito.splice(index,1);
-    }
+    const index = this.carrito.findIndex(value => value.idProducto===producto.idProducto);
 
+    this.carrito.splice(index, 1);
     this.total=this.calcularTotal();
-    this.carrito = this.catalogo.obtenerItems();
+    localStorage.setItem("carrito", JSON.stringify(this.carrito));
   }
 
-  actualizarCantidad(idProducto: number, nuevaCantidad: number): void {
+  actualizarCantidad(idProducto: number): void {
     const detalle = this.carrito.find(item => item.idProducto === idProducto);
-    if (detalle) {
-      detalle.cantidad = nuevaCantidad;
-      //detalle.importe = detalle.preciovta * nuevaCantidad;
+
+    if (detalle) { 
+      detalle.montoSubtotalProducto = detalle.producto.precioUnitario * detalle.cantidad;
       this.total=this.calcularTotal();
     }
+    localStorage.setItem("carrito", JSON.stringify(this.carrito));
   }
 
-
   registrarCompra(){
-    //Simulamos al cliente 1
-    this.pedido.cliente = new Cliente();  
-    this.pedido.cliente.idCliente = 1; 
+    // //Simulamos al cliente 1
+    // this.pedido.cliente = new Cliente();
+    // this.pedido.cliente.idCliente = 1; 
 
-    //Obtener fecha actual y formatearla
-    const fechaActual = new Date();
-    const fechaFormateada = fechaActual.toISOString().slice(0, 10); // Formato "yyyy-MM-dd"
+    // //Obtener fecha actual y formatearla
+    // const fechaActual = new Date();
+    // const fechaFormateada = fechaActual.toISOString().slice(0, 10); // Formato "yyyy-MM-dd"
 
-    //Completamos el pedido con la fecha y el pedidoDetalle 
-    //this.pedido.fecPedido=fechaFormateada;
-    this.pedido.pedidoDetalle=this.carrito;
+    // //Completamos el pedido con la fecha y el pedidoDetalle 
+    // //this.pedido.fecPedido=fechaFormateada;
+    // this.pedido.pedidoDetalle=this.carrito;
       
-    this.carritoService.createPedido(this.pedido).subscribe(
-      data=>{
-         console.log('OK registro');
-         //Limpiamos carrito y regresamos al catálogo
-         this.carrito=[];
-         this.catalogo.limpiarItems();
-         this.router.navigate(['catalogo']);
-      }
-    )
+    // this.carritoService.createPedido(this.pedido).subscribe(
+    //   data=>{
+    //      console.log('OK registro');
+    //      //Limpiamos carrito y regresamos al catálogo
+    //      this.carrito=[];
+    //      this.catalogo.limpiarItems();
+    //      this.router.navigate(['catalogo']);
+    //   }
+    // )
   }
 
 }

@@ -1,4 +1,4 @@
-<p>carrito-compras works!</p>
+
 <div class="container mt-4">
     <br>
     <div class="row">
@@ -15,21 +15,38 @@
               </tr>
             </thead>
             <tbody>
-               <!-- <tr  *ngFor="let detalle of carrito,  let i = index" >
-                  <td> {{detalle.idProducto}} </td>
-                  <td> {{producto.descripcion}} 
-                    <img src="assets/images/{{detalle.idProducto}}.jpg" alt="{{producto.descripcion}}"  width="100" height="100"> 
+
+               <tr *ngFor="let detalle of carrito, let i = index" >
+                  <td>                    
+                    {{i+1}}
                   </td>
-                  <td> {{detalle.producto.precio}}</td>
-                  <td>      
-                    <input type="number" [(ngModel)]="detalle.cantidad" class="form-control text-center" min="1"
-                                       (change)="actualizarCantidad(detalle.producto.id, detalle.cantidad)">     
+                  <td> 
+                    <!-- image -->
+                    
+                    <img src="assets/images/{{detalle.idProducto}}.jpg" alt="{{detalle.producto.nombre}}"  width="100" height="100"> 
+                  </td>
+                  <td> 
+                    <!-- precio -->
+                    {{detalle.producto.precioUnitario}}
+                    
+                  </td>
+                  <td>  
+                    <input 
+                      type="number" 
+                      [(ngModel)]="detalle.cantidad" 
+                      class="form-control text-center"
+                      style="width: 80px;"
+                      min="1" 
+                      (change)="actualizarCantidad(detalle.idProducto)"
+                    >
                    </td>
-                  <td> {{ detalle.importe }}</td>
+                  <td> 
+                    {{ detalle.montoSubtotalProducto }}
+                  </td>
                   <td> 
                     <button class="btn btn-primary btn-block"  (click)="eliminarItemCarrito(detalle.producto)">Eliminar</button>
                   </td>
-                </tr> 	 -->
+                </tr> 	
             </tbody>
           </table>     
         </div>

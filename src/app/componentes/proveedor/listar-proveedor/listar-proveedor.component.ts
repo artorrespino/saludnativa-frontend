@@ -28,7 +28,7 @@ export class ListarProveedorComponent implements OnInit {
         return [];
       })
     ).subscribe(data => {
-      this.proveedores = data;
+      this.proveedores = [...data].filter(provedor => provedor.estado === 'Activo');
     });
   }
 

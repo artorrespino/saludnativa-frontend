@@ -5,10 +5,10 @@ import { PedidoDetalle } from "src/app/modelos/PedidoDetalle";
     providedIn: 'root'
   })
   export class CatalogoCarrito {
-
     constructor(){}
-
-    public items: PedidoDetalle[] = [];
+    
+    // @ts-ignore
+    public items: PedidoDetalle[] = JSON.parse(localStorage.getItem("carrito")) || [];
 
     obtenerItems(): PedidoDetalle[] {
         return this.items;

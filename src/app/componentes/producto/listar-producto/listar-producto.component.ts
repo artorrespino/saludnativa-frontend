@@ -35,6 +35,7 @@ export class ListarProductoComponent implements OnInit {
         return [];
       })
     ).subscribe(data => {
+      console.log("producto", data)
       this.productos = data;
     });
   }

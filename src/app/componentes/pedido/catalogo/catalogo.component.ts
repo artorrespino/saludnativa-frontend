@@ -14,7 +14,7 @@ export class CatalogoComponent implements OnInit {
   productos?:Producto[];
 
   constructor(
-    private catalogoCarrito: CatalogoCarrito, 
+    private catalogoCarrito:CatalogoCarrito, 
     private productoService:ProductoService) { }
 
   ngOnInit(): void {
@@ -22,12 +22,12 @@ export class CatalogoComponent implements OnInit {
   }
 
   obtenerProductos():void{
+    
       this.productoService.getProductos().subscribe(
-          data=>{
-            this.productos=data;
-            console.log(data);
+          data => {
+            this.productos = data;
           },
-          error=>{
+          error => {
             console.log(error);
           }
       )
@@ -41,17 +41,18 @@ export class CatalogoComponent implements OnInit {
       pedidoDetalleExistente.cantidad += 1;
       pedidoDetalleExistente.montoSubtotalProducto = pedidoDetalleExistente.cantidad * producto.precioUnitario;
     } else {
-      
       const pedidoDetalle: PedidoDetalle = {
         cantidad: 1,
         montoSubtotalProducto: producto.precioUnitario,
         idProducto: producto.idProducto!,
-        idPedido: 0
+        idPedido: 0,
+        producto
       };
-  
       this.catalogoCarrito.items.push(pedidoDetalle);
+      
     }
-
+    localStorage.setItem('carrito', JSON.stringify(this.catalogoCarrito.obtenerItems()))
+    console.log(this.catalogoCarrito.obtenerItems())
   }
 
 }
