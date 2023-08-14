@@ -1,0 +1,30 @@
+<button (click)="nuevo()" class="btn btn-primary">Agregar</button>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>ID </th>
+            <th>RUC</th>
+            <th>Nombre Proveedor</th>
+            <th>Contacto</th>
+            <th>Email</th>
+            <th>Celular</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let proveedor of proveedores">
+            <td>{{proveedor.idProveedor}}</td>
+            <td>{{proveedor.ruc}}</td>
+            <td>{{proveedor.nombre}}</td>
+            <td>{{proveedor.contacto}}</td>
+            <td>{{proveedor.email}}</td>
+            <td>{{proveedor.celular}}</td>
+            <td>
+                <button (click)="editar(proveedor)" class="btn btn-primary">Editar</button>
+                <button (click)="eliminar(proveedor)" class="btn btn-danger">Eliminar</button>
+            </td>
+            
+
+        </tr>
+    </tbody>
+</table>

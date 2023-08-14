@@ -1,0 +1,52 @@
+<div class="container col-md-6">
+    <div>
+        <h3>Actualizar Productos</h3>
+    </div>
+    <div class="card-body">
+        <form (submit)="actualizar(producto)">
+            <div class="form-group">
+                <label for="nombre">Nombre del producto:</label>
+                <input type="text" [(ngModel)]="producto.nombre" id="nombre" name="nombre" class="form-control" placeholder="Ingrese el nombre del producto" title="Nombre del producto">
+            </div>
+            <!-- 
+            <div class="form-group">
+                <label for="imagen">Imagen:</label>
+                <input type="file" (change)="onImageSelected($event)" id="imagen" class="form-control" title="Seleccione una imagen">
+                <img [src]="selectedImage" alt="Imagen seleccionada" *ngIf="selectedImage" class="img-thumbnail">
+            </div> 
+            -->
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" [(ngModel)]="producto.descripcion" id="descripcion" name="descripcion" class="form-control" placeholder="Ingrese la descripción del producto" title="Descripción del producto">
+            </div>
+            <div class="form-group">
+                <label for="precioUnitario">Precio Unitario:</label>
+                <input type="number" step=".50" min="0" [(ngModel)]="producto.precioUnitario" id="precioUnitario" name="precioUnitario" class="form-control" placeholder="Ingrese el precio unitario del producto" title="Precio Unitario">
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" min="0" [(ngModel)]="producto.stock" id="stock" name="stock" class="form-control" placeholder="Ingrese el stock del producto" title="Stock del producto">
+            </div>
+        
+            <div class="form-group">
+                <label for="categoriaProducto">Categoría del Producto:</label>
+                <select [(ngModel)]="producto.categoriaProducto.idCategoria" id="categoriaProducto" name="categoriaProducto" class="form-control">
+                    <option value="0">Selecciona una categoría</option>
+                    <option *ngFor="let categoria of listaCategorias" [value]="categoria.idCategoria">{{ categoria.categoria }}</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="proveedor">Proveedor:</label>
+                <select [(ngModel)]="producto.proveedor.idProveedor" id="proveedor" name="proveedor" class="form-control">
+                    <option value="0">Selecciona un proveedor</option>
+                    <option *ngFor="let proveedor of listaProveedores" [value]="proveedor.idProveedor">{{ proveedor.nombre }}</option>
+                </select>
+            </div>
+            
+            <button type="submit"  class="btn btn-danger">Guardar</button>
+        </form>
+    </div>
+    
+</div>
+

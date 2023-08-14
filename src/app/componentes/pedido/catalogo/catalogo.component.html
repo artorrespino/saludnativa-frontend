@@ -1,0 +1,21 @@
+
+<div class="containe mt-4">
+    <div class="row"> 
+      <div class="col-sm-4"  *ngFor="let producto of productos">
+        <div class="card">
+          <div class="card-header"> 
+            <h5>{{producto.nombre}}</h5>
+          </div>
+          <div class="card-body text-center">
+            <img src="assets/images/{{producto.idProducto}}.jpg" alt="{{producto.descripcion}}"  width="200" height="180">
+            <h5 class="card-title">S/. {{producto.precioUnitario}}</h5>
+          </div>
+          <div class="card-footer text-center">
+            <div> 
+                <button class="btn btn-primary btn-block" (click)="agregarAlCarrito(producto)">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>   		
+      </div>  
+    </div>
+  </div>
